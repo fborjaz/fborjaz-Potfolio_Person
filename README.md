@@ -1,8 +1,17 @@
-# React + Vite
+## Portafolio Personal: React + Vite + Framer Motion + Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Descripción
+Este es mi portafolio personal, creado con React y optimizado con Vite para un desarrollo rápido. Utiliza Framer Motion para animaciones suaves y Tailwind CSS para un diseño limpio y responsivo.
 
-Currently, two official plugins are available:
+### Características Clave
+* **Diseño minimalista:** Enfatiza tu trabajo con un diseño limpio y moderno.
+* **Animaciones suaves:** Utiliza Framer Motion para crear transiciones atractivas.
+* **Responsivo:** Se adapta perfectamente a cualquier dispositivo.
+* **Optimizado para SEO:** Facilita que los motores de búsqueda encuentren tu trabajo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tecnologías Utilizadas
+* **React:** Biblioteca de JavaScript para construir interfaces de usuario.
+* **Vite:** Herramienta de construcción   
+ para un desarrollo ultrarrápido con HMR.
+* **Framer Motion:** Biblioteca de animaciones avanzadas para transiciones de interfaz de usuario.
+* **Tailwind CSS:** Framework CSS utilitario para construir diseños responsivos.
