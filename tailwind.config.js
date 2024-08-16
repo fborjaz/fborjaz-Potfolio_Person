@@ -19,14 +19,38 @@ export default {
     'leading-6',
     'h-9',
     'leading-9',
-    'shadow-lg'
+    'shadow-lg',
+    'dark',
+    'light',
+    'bg-light-background',
+    'bg-dark-background',
+    'text-light-text',
+    'text-dark-text',
   ],
 
   // enable dark mode via class strategy
-  darkMode: 'class',
+  darkMode: 'className',
 
   theme: {
     extend: {},
+    themes: {
+      light: {
+        colors: {
+          primary: '#3498db',
+          secondary: '#f1c40f',
+          background: '#f9f9f9',
+          text: '#333',
+        },
+      },
+      dark: {
+        colors: {
+          primary: '#2ecc71',
+          secondary: '#e74c3c',
+          background: '#333',
+          text: '#fff',
+        },
+      },
+    },
   },
 
   plugins: [
