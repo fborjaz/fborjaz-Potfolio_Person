@@ -1,5 +1,9 @@
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -19,35 +23,25 @@ export default {
     'leading-6',
     'h-9',
     'leading-9',
-    'shadow-lg',
-    'dark',
-    'light',
-    'bg-light-background',
-    'bg-dark-background',
-    'text-light-text',
-    'text-dark-text',
+    'shadow-lg'
   ],
 
   // enable dark mode via class strategy
-  darkMode: 'className',
+  darkMode: "className",
 
   theme: {
-    extend: {},
-    themes: {
-      light: {
-        colors: {
-          primary: '#3498db',
-          secondary: '#f1c40f',
-          background: '#f9f9f9',
-          text: '#333',
-        },
+    extend: {
+      animation: {
+        aurora: "aurora 60s linear infinite",
       },
-      dark: {
-        colors: {
-          primary: '#2ecc71',
-          secondary: '#e74c3c',
-          background: '#333',
-          text: '#fff',
+      keyframes: {
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
         },
       },
     },
@@ -55,6 +49,19 @@ export default {
 
   plugins: [
     // include Flowbite as a plugin in your Tailwind CSS project
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    addVariablesForColors,
   ],
+}
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
 }

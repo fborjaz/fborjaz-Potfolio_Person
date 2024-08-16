@@ -1,15 +1,37 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { AuroraBackground } from "./components/ui/aurora-background";
 import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="overflow-x-hidden text-neutral-100 antialiased selection:bg-cyan-300 selection:text-cyan-900">
-      <div className="flixed top-0 -z-0 h-full w-full"></div>
-      <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+    <AuroraBackground>
+      <motion.div
+        initial={{ opacity: 0.0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.3,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="relative flex flex-col gap-4 items-center justify-center px-4"
+      >
 
-      <div className="container mx-auto px-8 ">
-        <Navbar />
-      </div>
-    </div>
+        <div className="flex-1 container mx-auto px-8 ">
+          <Navbar />
+        </div>
+
+        <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
+          Background lights are cool you know.
+        </div>
+        <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
+          And this, is chemical burn.
+        </div>
+        <button className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
+          Debug now
+        </button>
+      </motion.div>
+    </AuroraBackground>
   );
 };
 
